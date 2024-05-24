@@ -1,0 +1,7 @@
+.count-down-list {
+  @apply mt-2;
+}
+
+.count-down-item {
+  @apply py-1.5;
+}
