@@ -12,7 +12,7 @@ function clearAll() {
 
 <template>
   <Header class="gap-x-1">
-    <IcRoundArrowBack class="w-6 h-6" @click="router.back()" />
+    <IcRoundArrowBack class="icon-btn" @click="router.back()" />
     <div class="fw-500 text-base">
       Settings
     </div>

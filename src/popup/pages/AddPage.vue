@@ -23,7 +23,7 @@ const canSubmit = computed(() => name.value && date.value)
 
 <template>
   <Header class="gap-x-1">
-    <IcRoundArrowBack class="w-6 h-6" @click="router.back()" />
+    <IcRoundArrowBack class="icon-btn" @click="router.back()" />
     <div class="fw-500 text-base">
       Add Countdown
     </div>
