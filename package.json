@@ -32,7 +32,8 @@
   "dependencies": {
     "dayjs": "^1.11.11",
     "uuid": "^9.0.1",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.8.1",

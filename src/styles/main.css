@@ -1,7 +1,3 @@
-.count-down-item {
-  @apply py-1.5;
-}
-
 .btn {
   @apply px-4 py-1 rounded inline-block
   bg-cyan-500 text-white cursor-pointer
@@ -10,7 +6,7 @@
 }
 
 .icon-btn {
-  @apply inline-block cursor-pointer select-none rounded-full size-6
+  @apply inline-flex items-center justify-center cursor-pointer select-none rounded-full size-6
   transition duration-200 ease-in-out bg-white
   hover:bg-gray-300 hover:text-gray-500;
 }

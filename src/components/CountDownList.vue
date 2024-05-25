@@ -1,11 +1,25 @@
 <script setup lang="ts">
+import draggable from 'vuedraggable'
 import { countdownList } from '~/storage'
+
+const dragging = ref(false)
 </script>
 
 <template>
   <div class="min-h-96px">
     <template v-if="countdownList.length > 0">
-      <CountDown v-for="countDown in countdownList" :key="countDown.id" v-bind="countDown" />
+      <draggable
+        :list="countdownList"
+        :ghost-class="$style.ghost"
+        item-key="id"
+        animation="200"
+        @start="dragging = true"
+        @end="dragging = false"
+      >
+        <template #item="{ element }">
+          <CountDown :key="element.id" v-bind="element" :dragging="dragging" />
+        </template>
+      </draggable>
     </template>
     <template v-else>
       <div class="flex flex-col gap-y-2 items-center justify-center min-h-inherit">
@@ -17,3 +31,9 @@ import { countdownList } from '~/storage'
     </template>
   </div>
 </template>
+
+<style module>
+.ghost {
+  @apply bg-gray-200 opacity-80
+}
+</style>

@@ -9,7 +9,7 @@ const router = useRouter()
 const name = ref('')
 const date = ref('')
 
-function addCountdown() {
+function handleCreate() {
   const id = uuidv4()
   // date show be number
   countdownList.value.push({ id, name: name.value, date: dayjs(date.value).valueOf() })
@@ -44,7 +44,7 @@ const canSubmit = computed(() => name.value && date.value)
     </div>
   </div>
 
-  <button :disabled="!canSubmit" class="btn" @click="addCountdown">
+  <button :disabled="!canSubmit" class="btn" @click="handleCreate">
     Create
   </button>
 </template>
