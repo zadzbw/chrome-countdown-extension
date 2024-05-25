@@ -8,7 +8,7 @@ window.storage = storage
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
+  <Header class="justify-between">
     <div class="flex gap-x-1 items-center">
       <IcBaselineCalendarMonth class="w-6 h-6" />
       <div class="fw-500 text-base">
@@ -16,9 +16,9 @@ window.storage = storage
       </div>
     </div>
     <div class="flex gap-x-1">
-      <IcBaselinePlus class="w-6 h-6" />
+      <IcBaselinePlus class="w-6 h-6" @click="router.push('/add')" />
       <IcBaselineMoreHoriz class="w-6 h-6" @click="router.push('/setting')" />
     </div>
-  </div>
+  </Header>
   <CountDownList />
 </template>

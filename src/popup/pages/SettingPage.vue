@@ -1,16 +1,26 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { countdownList } from '~/storage'
 
 const router = useRouter()
+
+function clearAll() {
+  countdownList.value = []
+  router.back()
+}
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
-    <div class="flex gap-x-1 items-center">
-      <IcBaselineKeyboardBackspace class="w-6 h-6" @click="router.back()" />
-      <div class="fw-500 text-base">
-        Settings
-      </div>
+  <Header class="gap-x-1">
+    <IcRoundArrowBack class="w-6 h-6" @click="router.back()" />
+    <div class="fw-500 text-base">
+      Settings
     </div>
+  </Header>
+
+  <div>
+    <button class="btn" @click="clearAll">
+      Clear All
+    </button>
   </div>
 </template>

@@ -1,23 +1,26 @@
 <script setup lang="ts">
+import dayjs from 'dayjs'
 import type { CountDown } from '~/storage'
 
 const { date } = defineProps<CountDown>()
 
-function calcRemainingDays(date: number) {
-  const now = new Date()
-  const target = new Date(date)
-  const diff = target.getTime() - now.getTime()
-  return Math.floor(diff / (1000 * 60 * 60 * 24))
-}
+const remainingDays = computed(() => {
+  const now = dayjs(dayjs().format('YYYY-MM-DD'))
+  const target = dayjs(date)
+  return target.diff(now, 'day')
+})
 </script>
 
 <template>
   <div class="count-down-item">
-    <div class="text-base fw-500">
-      {{ calcRemainingDays(date) }}d
-    </div>
-    <div class="text-sm">
-      {{ name }}
+    <div class="flex flex-col gap-y-1">
+      <div class="text-lg line-height-none">
+        <span class="fw-500">{{ remainingDays }}</span>
+        <span class="fw-400">d</span>
+      </div>
+      <div class="text-sm line-height-none">
+        {{ name }}
+      </div>
     </div>
   </div>
 </template>
