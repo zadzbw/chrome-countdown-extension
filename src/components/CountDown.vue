@@ -32,14 +32,18 @@ function handleDelete() {
     @mouseleave="hover = false"
   >
     <div class="flex flex-col gap-y-1 flex-grow">
-      <div class="text-lg line-height-none">
-        <span class="fw-500">{{ remainingDays }}</span>
-        <span class="fw-400">d</span>
+      <div class="flex items-baseline gap-x-1">
+        <div class="text-lg line-height-none">
+          <span class="fw-500">{{ remainingDays }}</span>
+          <span class="fw-400">d</span>
+        </div>
+        <div>{{ date }}</div>
       </div>
       <div class="text-sm line-height-none">
         {{ name }}
       </div>
     </div>
+
     <Transition
       enter-active-class="animate-fade-in animate-duration-200 animate-ease-out"
       leave-active-class="animate-fade-in animate-duration-200 animate-ease-in animate-reverse"

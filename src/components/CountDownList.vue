@@ -6,7 +6,7 @@ const dragging = ref(false)
 </script>
 
 <template>
-  <div class="min-h-96px">
+  <div class="min-h-100px">
     <template v-if="countdownList.length > 0">
       <draggable
         :list="countdownList"

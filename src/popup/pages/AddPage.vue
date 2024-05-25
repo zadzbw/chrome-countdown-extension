@@ -11,8 +11,7 @@ const date = ref('')
 
 function handleCreate() {
   const id = uuidv4()
-  // date show be number
-  countdownList.value.push({ id, name: name.value, date: dayjs(date.value).valueOf() })
+  countdownList.value.push({ id, name: name.value, date: date.value })
   router.back()
 }
 

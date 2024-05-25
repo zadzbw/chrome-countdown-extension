@@ -3,7 +3,7 @@ import { useWebExtensionStorage } from '~/hooks/useWebExtensionStorage'
 export interface CountDown {
   id: string
   name: string
-  date: number
+  date: string
 }
 
 export const countdownList = useWebExtensionStorage<Array<CountDown>>('countdown-list', [])
