@@ -20,6 +20,8 @@ const remainingDays = computed(() => {
   return target.diff(now, 'day')
 })
 
+const showEmoji = computed(() => remainingDays.value <= 0)
+
 function handleDelete() {
   // eslint-disable-next-line no-alert
   const isConfirm = confirm('Are you sure to delete this countdown?')
@@ -40,7 +42,8 @@ function toDetail() {
     @click="toDetail"
   >
     <div class="flex flex-col gap-y-1 flex-grow">
-      <div class="flex items-baseline gap-x-1">
+      <div class="flex gap-x-1" :class="[showEmoji ? 'items-center' : 'items-baseline']">
+        <TwemojiCheckMarkButton v-if="showEmoji" class="size-5" />
         <div class="text-lg line-height-none">
           <span class="fw-500">{{ remainingDays }}</span>
           <span class="fw-400">d</span>
@@ -56,7 +59,7 @@ function toDetail() {
       enter-active-class="animate-fade-in animate-duration-200 animate-ease-out"
       leave-active-class="animate-fade-in animate-duration-200 animate-ease-in animate-reverse"
     >
-      <div v-if="!dragging && hover" class="icon-btn" @click="handleDelete">
+      <div v-if="!dragging && hover" class="icon-btn" @click.stop="handleDelete">
         <IcOutlineDeleteSweep class="size-5" />
       </div>
     </Transition>

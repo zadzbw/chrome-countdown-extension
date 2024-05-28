@@ -33,7 +33,7 @@ const canSubmit = computed(() => name.value && date.value)
       <div class="text-sm fw-600">
         Name
       </div>
-      <input v-model="name" class="outline-none text-lg pb-1 border-b fw-300" placeholder="edit me">
+      <input v-model="name" class="outline-none text-lg pb-1 border-b fw-300" placeholder="input date">
     </div>
     <div class="flex flex-col gap-y-1">
       <div class="text-sm fw-600">

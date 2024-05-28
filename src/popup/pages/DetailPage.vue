@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
-import dayjs from 'dayjs'
 import type { CountDown } from '~/storage'
 import { countdownList } from '~/storage'
 
@@ -19,8 +18,6 @@ function handleSave() {
   router.back()
 }
 
-const minDate = computed(() => dayjs().add(1, 'day').format('YYYY-MM-DD'))
-
 const canSubmit = computed(() => name.value && date.value)
 </script>
 
@@ -37,13 +34,13 @@ const canSubmit = computed(() => name.value && date.value)
       <div class="text-sm fw-600">
         Name
       </div>
-      <input v-model="name" class="outline-none text-lg pb-1 border-b fw-300" placeholder="edit me">
+      <input v-model="name" class="outline-none text-lg pb-1 border-b fw-300" placeholder="input date">
     </div>
     <div class="flex flex-col gap-y-1">
       <div class="text-sm fw-600">
         Date
       </div>
-      <input v-model="date" type="date" class="outline-none text-lg pb-1 border-b fw-300" :min="minDate">
+      <input v-model="date" type="date" class="outline-none text-lg pb-1 border-b fw-300">
     </div>
   </div>
 
