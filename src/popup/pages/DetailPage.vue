@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { v4 as uuidv4 } from 'uuid'
-import dayjs from 'dayjs'
+import { useRoute, useRouter } from 'vue-router'
+import type { CountDown } from '~/storage'
 import { countdownList } from '~/storage'
 
 const router = useRouter()
+const route = useRoute()
 
-const name = ref('')
-const date = ref('')
+const id = route.params.id
+const countdown = countdownList.value.find(item => item.id === id) as CountDown
 
-function handleCreate() {
-  const id = uuidv4()
-  countdownList.value.push({ id, name: name.value, date: date.value })
+const name = ref(countdown.name)
+const date = ref(countdown.date)
+
+function handleSave() {
+  countdown.name = name.value
+  countdown.date = date.value
   router.back()
 }
-
-const minDate = computed(() => dayjs().add(1, 'day').format('YYYY-MM-DD'))
 
 const canSubmit = computed(() => name.value && date.value)
 </script>
@@ -24,7 +25,7 @@ const canSubmit = computed(() => name.value && date.value)
   <Header class="gap-x-1">
     <IcRoundArrowBack class="icon-btn" @click="router.back()" />
     <div class="fw-500 text-base">
-      Add Countdown
+      Update Countdown
     </div>
   </Header>
 
@@ -39,11 +40,11 @@ const canSubmit = computed(() => name.value && date.value)
       <div class="text-sm fw-600">
         Date
       </div>
-      <input v-model="date" type="date" class="outline-none text-lg pb-1 border-b fw-300" :min="minDate">
+      <input v-model="date" type="date" class="outline-none text-lg pb-1 border-b fw-300">
     </div>
   </div>
 
-  <button :disabled="!canSubmit" class="btn" @click="handleCreate">
-    Create
+  <button :disabled="!canSubmit" class="btn" @click="handleSave">
+    Save
   </button>
 </template>
