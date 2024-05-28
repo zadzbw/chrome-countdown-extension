@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import { useRouter } from 'vue-router'
 import type { CountDown } from '~/storage'
 import { countdownList } from '~/storage'
+
+const { id, date, dragging } = defineProps<CountDownProps>()
+
+const router = useRouter()
 
 interface CountDownProps extends CountDown {
   dragging: boolean
 }
-
-const { id, date, dragging } = defineProps<CountDownProps>()
 
 const hover = ref(false)
 
@@ -23,6 +26,10 @@ function handleDelete() {
   if (isConfirm)
     countdownList.value = countdownList.value.filter(item => item.id !== id)
 }
+
+function toDetail() {
+  router.push(`/countdown/${id}`)
+}
 </script>
 
 <template>
@@ -30,6 +37,7 @@ function handleDelete() {
     :class="$style.countDownItem"
     @mouseenter="hover = true"
     @mouseleave="hover = false"
+    @click="toDetail"
   >
     <div class="flex flex-col gap-y-1 flex-grow">
       <div class="flex items-baseline gap-x-1">
