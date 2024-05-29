@@ -1,3 +1,7 @@
+body {
+  color-scheme: light dark;
+}
+
 .btn {
   @apply px-4 py-1 rounded inline-block
   bg-cyan-500 text-white cursor-pointer
@@ -7,6 +11,10 @@
 
 .icon-btn {
   @apply inline-flex items-center justify-center cursor-pointer select-none rounded-full size-6
-  transition duration-200 ease-in-out bg-white
-  hover:bg-gray-300 hover:text-gray-500;
+  transition duration-200 ease-in-out;
+
+  @apply primary-text body-bg;
+
+  @apply hover:text-dark-700 hover:bg-gray-200;
+  @apply @dark:hover:text-white @dark:hover:bg-gray-600;
 }

@@ -34,6 +34,8 @@ const dragging = ref(false)
 
 <style module>
 .ghost {
-  @apply bg-gray-200 opacity-80
+  @apply opacity-80;
+
+  @apply bg-gray-200 @dark:bg-dark-100;
 }
 </style>

@@ -60,7 +60,7 @@ function toDetail() {
       leave-active-class="animate-fade-in animate-duration-200 animate-ease-in animate-reverse"
     >
       <div v-if="!dragging && hover" class="icon-btn" @click.stop="handleDelete">
-        <IcOutlineDeleteSweep class="size-5" />
+        <IcOutlineDeleteSweep class="size-4.5" />
       </div>
     </Transition>
   </div>
@@ -68,6 +68,8 @@ function toDetail() {
 
 <style module>
 .countDownItem {
-  @apply mx--1.5 px-1.5 py-1.5 flex items-center cursor-pointer bg-white rounded-2
+  @apply mx--1.5 px-1.5 py-1.5 flex items-center cursor-pointer rounded-2;
+
+  @apply primary-text body-bg;
 }
 </style>
