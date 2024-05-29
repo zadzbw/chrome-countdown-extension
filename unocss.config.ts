@@ -7,7 +7,7 @@ import { colors } from '@unocss/preset-uno/colors'
 export default defineConfig({
   shortcuts: [{
     'body-bg': 'bg-white @dark:bg-dark-400',
-    'primary-text': 'text-dark-400 @dark:text-light-300',
+    'primary-text': 'text-dark-400 @dark:text-light-400',
   }],
   theme: {
     colors: {
