@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { onMessage } from 'webext-bridge/content-script'
 
-// Firefox `browser.tabs.executeScript()` requires scripts return a primitive value
+// Firefox `tabs.executeScript()` requires scripts return a primitive value
 (() => {
   console.log('[chrome-countdown-extension] Launching extension from content script')
 
